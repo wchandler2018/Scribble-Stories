@@ -1,14 +1,24 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const exphbs = require("express-handlebars");
+const mongoose = require('mongoose');
+const Story = mongoose.model('stories');
+const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
+router.get('/', ensureGuest, (req, res) => {
+  res.render('index/welcome');
+});
 
-router.get('/', (req, res) => {
-    res.render('index/welcome');
-  });
+router.get('/dashboard', ensureAuthenticated, (req, res) => {
+  Story.find({user:req.user.id})
+  .then(stories => {
+    res.render('index/dashboard', {
+      stories: stories
+    });
+  }); 
+});
 
-  router.get('/dashboard', (req, res) => {
-    res.send('dashboard');
-  });
+router.get('/about', (req, res) => {
+  res.render('index/about');
+});
 
 module.exports = router;

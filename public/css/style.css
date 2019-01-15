@@ -1,0 +1,41 @@
+
+  body {
+    background: url("../images/image11.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .brand-logo{
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem !important;
+    color: #a2c523 !important;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, .8);
+  }
+
+  .nav-wrapper .fa-bars{
+    font-size: 25px;
+  }
+
+  footer{
+    margin-top: 20px;
+  }
+
+  .story-text{
+    max-height: 120px;
+  }
+
+  .dash-status{
+    text-transform: capitalize;
+  }
+
+  #delete-form{
+    display: inline
+  }
